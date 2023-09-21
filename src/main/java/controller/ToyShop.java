@@ -1,5 +1,6 @@
 package controller;
 
+import model.FileSaver;
 import model.Model;
 import model.Toy;
 import view.View;
@@ -11,7 +12,7 @@ public class ToyShop {
     private Comparator<Toy> rateComparator;
     private View view;
     private Model model;
-
+    private FileSaver fileSaver;
 
     public ToyShop(Comparator<Toy> rateComparator, View view) {
         this.rateComparator = rateComparator;
@@ -24,7 +25,8 @@ public class ToyShop {
             System.out.println("Количество игрушек введено неверно");
         } else {
             model = new Model(rateComparator, toysCount);
-            System.out.println(model.getWinner());
+            fileSaver = new FileSaver();
+            fileSaver.saveFile(model.getWinner());
         }
     }
 }
