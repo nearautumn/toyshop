@@ -1,22 +1,18 @@
+import controller.ToyShop;
 import model.RateComparator;
 import model.Toy;
+import view.View;
 
 import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Comparator<Toy> toyComparator = new RateComparator();
-        Queue<Toy> queue = new PriorityQueue<>(10, toyComparator);
+        View view = new View();
 
-        for (int i = 0; i < 11; i++) {
-            queue.add(new Toy());
-        }
-
-        System.out.println(queue);
-        System.out.println(queue.poll());
+        ToyShop toyShop = new ToyShop(toyComparator, view);
+        toyShop.initRaffle();
     }
 }

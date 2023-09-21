@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Objects;
 import java.util.Random;
 import java.util.UUID;
 
@@ -10,13 +9,14 @@ public class Toy {
     private String name;
     private int count;
     private int rate;
-    private Random random = new Random();
+    private final Random random = new Random();
+    private final String[] toyNames = new String[] {"Soldier", "Doll", "Car", "Lego"};
 
     public Toy() {
         id = UUID.randomUUID();
         rate = random.nextInt(0, 101);
-        name = "toy";
-        count = 1;
+        name = toyNames[random.nextInt(0, toyNames.length)];
+        count = random.nextInt(1, 11);
     }
 
     public Toy(String name, int count) {
@@ -27,32 +27,8 @@ public class Toy {
         rate = random.nextInt(0, 101);
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     public int getRate() {
         return rate;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
     }
 
     @Override

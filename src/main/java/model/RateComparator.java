@@ -1,7 +1,5 @@
 package model;
 
-import model.Toy;
-
 import java.util.Comparator;
 
 public class RateComparator implements Comparator<Toy> {
